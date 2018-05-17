@@ -1,0 +1,53 @@
+
+Cahier des charges : TX, inventaire
+
+Rentrer le moins de choses possibles à la main
+Gérer les équipement (créer et requêtes informatives)
+Déplacer un équipement
+Gérer l’emprunt des équipements (emprunter et rendre)
+Créer un équipement : entrer un nom etc. Penser à rendre possible la prise de photo.
+Programmer le tag NFC.
+Générer un numéro et le lier à l’équipement.
+Visualisation de l’équipement : réassocier à un autre équipement
+Programmer un tag.
+Déplacement : associer un équipement a un autre équipement (ex : dans tel véhicule/drone) -> affectation, on scanne un équipement et s’il est déjà affecté on le désaffecte puis le réaffecte au nouvel équipement.
+Scanne pc -> scan contenant -> pc affecté au contenant.
+Comme ça même démarche pour désaffecter. Penser au bouton annuler.
+Certains équipements seront identifiés par QR code. Donc scan d’un équipement en lançant une routine de lecture NFC et une routine QR code -> le premier qui renvoie une donnée valide -> ok
+Prêter : On scan l’équipement pour le désaffecter -> lier au badge UTC ou alors rechercher une personne avec une option si extérieur a l’UTC (la personne dans base utilisateur ?)
+Service de localisation du téléphone pour le prêt des équipements.
+Dans l’emprunt on enregistre la date du jour -> prévoir date par défaut (1 mois), date stricte (choix explicite) et choix de date pas stricte.
+Refaire un UML propre.
+En plus de rajouter image et code tag actualiser la position par exemple si on ne range pas tout de suite.
+Prêt -> pas récursif dans l’UML, représentation avec héritage possible. Eviter de dé-normaliser évidemment.
+Il faut penser à imbriquer les équipements entre eux.
+Classer les équipements en sous catégories (capteur etc.). Pas obliger forcément à choisir une catégorie.
+TECHNOLOGIES : PostgreSQL -> utiliser trigger. MCD, MLD doivent être les mêmes que celle du labo de Lille.
+UML sur DIA.
+Une fois le MCD et MLD décidés on ne peut PLUS les changer.
+Faire un back end
+Faire rapidement un squelette de l’application, même si les boutons ne font rien.
+Priorité : 1) Squelette de l’application 
+  2) UML (mettre une table personne pour les droits)
+Plus tard → système de login (table de droit).
+3 catégories de personnes (admin, droit de modif -> affectation, droit de désaffecter, supprimer, droit de requête informative sur elles mêmes, droit de visualisation globale).
+On suppose au début que tout le monde est admin ou rien du tout (droit de visualisation des emprunts)
+Date de déplacement à sauvegarder -> pour faire un historique
+
+MCD :
+
+Matériel dans matériel
+Infrastructure : un équipement va appartenir à une plateforme particulière (exemple heudyasic) -> un nom et éventuellement une description. Appartient à une unique plateforme. Garder les données de mouvements dates etc.
+Dans emprunt -> indiquer l’état avant et état après.
+Commentaire sur l’état avant et après.
+Relation pour indiquer qui a initié (qui a prêté) l’emprunt. Etendre a la relation contenant contenu. Typiquement savoir qui a sorti quoi de tel ou tel contenant.
+Enregistrer les mouvement (sortie et entrée) Pas forcément la même personne qui sort et rentre et sort les équipements. 3 personnes impliquées dans un emprunt.
+2 personnes pour les entrées sorties.
+Plus important de savoir qui a « cassé la relation ».
+Bat et salle dans une table a part car beaucoup de tuples identiques.
+
+Demander si on peut faire PHP 7
+
+1 seul att pour position
+
+Table a part pour reference d’un materiel 
