@@ -1,1 +1,9 @@
 Schéma relationnel de la BDD
+
+Categorie(#id_cat : int, nom : string, contenant=>Categorie(id_cat)) {nom NOT NULL}
+Materiel(#reference : string, #typeTag : {nfc | qrcode}, nom : string, photo : string, etat : string, description : string, position : Coordonnees, emplacement_bat=>Emplacement(bat), emplacement_salle=>Emplacement(salle), cat=>Categorie(id_cat), contenant_ref=>Materiel(reference), contenant_tag=>Materiel(typeTag), infra=>Infrastructure(nom))
+{nom, etat, description, position, emplacement_salle, emplacement_bat, infra NOT NULL}
+
+Emplacement(#bat : string, #salle : string)
+Personne()
+Emprunt()
