@@ -20,9 +20,10 @@ Personne(#id_pers : int, nom : string, prenom : string, email : string, telephon
           
 {nom, prenom, email, t NOT NULL}
           
-Emprunt(#mat_ref=>Materiel(reference), personne=>Personne(id_pers), dateEmprunt : date, 
-         dateRetour : date, dateRetourPrevue : date)
+Emprunt(#mat_ref=>Materiel(reference), mat_tag=>Materiel(typeTag), emprunteur=>Personne(id_pers), 
+         superviseur=>Personne(id_pers), dateEmprunt : date, dateRetour : date, 
+         dateRetourPrevue : date)
 
-{personne, dateEmprunt, dateRetourPrevue NOT NULL}
+{emprunteur, superviseur, dateEmprunt, dateRetourPrevue NOT NULL}
 
 dataType Coordonnees : <longitude : numeric, latitude : numeric, date : timestamp>
