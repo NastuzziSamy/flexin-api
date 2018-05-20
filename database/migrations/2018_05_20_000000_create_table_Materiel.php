@@ -26,7 +26,7 @@ class CreateMaterielTable extends Migration
             $table->foreign('emplacement_bat')->references('bat')->on('Emplacement');
             $table->foreign('emplacement_salle')->references('salle')->on('Emplacement');
             $table->integer('cat');
-            $table->foreign('cat')->references('id_cat')->on('Categorie');
+            $table->foreign('cat')->references('id_cat')->on('Categories');
             $table->string('contenant_ref');
             $table->foreign('contenant_ref')->references('reference')->on('Materiel');
             $table->enum('contenant_tag', ['nfc', 'qrcode']);
