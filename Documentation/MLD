@@ -1,9 +1,28 @@
 Schéma relationnel de la BDD
 
-Categorie(#id_cat : int, nom : string, contenant=>Categorie(id_cat)) {nom NOT NULL}
-Materiel(#reference : string, #typeTag : {nfc | qrcode}, nom : string, photo : string, etat : string, description : string, position : Coordonnees, emplacement_bat=>Emplacement(bat), emplacement_salle=>Emplacement(salle), cat=>Categorie(id_cat), contenant_ref=>Materiel(reference), contenant_tag=>Materiel(typeTag), infra=>Infrastructure(nom))
+Categorie(#id_cat : int, nom : string, contenant=>Categorie(id_cat))
+
+{nom NOT NULL}
+
+Materiel(#reference=>Refs(reference), #typeTag=>Refs(typeTag), nom : string, photo : string, 
+          etat : string, description : string, position : Coordonnees, emplacement_bat=>Emplacement(bat), 
+          emplacement_salle=>Emplacement(salle), cat=>Categorie(id_cat), contenant_ref=>Materiel(reference), 
+          contenant_tag=>Materiel(typeTag), infra=>Infrastructure(nom))
+          
 {nom, etat, description, position, emplacement_salle, emplacement_bat, infra NOT NULL}
 
+Refs(#reference : string, #typeTag : {nfc | qrcode})
+
 Emplacement(#bat : string, #salle : string)
-Personne()
-Emprunt()
+
+Personne(#id_pers : int, nom : string, prenom : string, email : string, telephone : string, 
+          entreprise : string, t : {1, 2, 3})
+          
+{nom, prenom, email NOT NULL}
+          
+Emprunt(#mat_ref=>Materiel(reference), personne=>Personne(id_pers), dateEmprunt : date, 
+         dateRetour : date, dateRetourPrevue : date)
+
+{personne, dateEmprunt, dateRetourPrevue NOT NULL}
+
+dataType Coordonnees : <longitude : numeric, latitude : numeric, date : timestamp>
