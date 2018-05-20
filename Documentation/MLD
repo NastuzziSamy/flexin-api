@@ -18,7 +18,7 @@ Emplacement(#bat : string, #salle : string)
 Personne(#id_pers : int, nom : string, prenom : string, email : string, telephone : string, 
           entreprise : string, t : {1, 2, 3})
           
-{nom, prenom, email NOT NULL}
+{nom, prenom, email, t NOT NULL}
           
 Emprunt(#mat_ref=>Materiel(reference), personne=>Personne(id_pers), dateEmprunt : date, 
          dateRetour : date, dateRetourPrevue : date)
