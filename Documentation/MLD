@@ -26,4 +26,4 @@ Emprunt(#mat_ref=>Materiel(reference), #mat_tag=>Materiel(typeTag), emprunteur=>
 
 {emprunteur, superviseur, dateEmprunt, dateRetourPrevue NOT NULL}
 
-dataType Coordonnees : <longitude : numeric, latitude : numeric, date : timestamp>
+dataType Coordonnees : <longitude : numeric, latitude : numeric, date : timestamp> // On utilise le type Point de PostgreSQL
