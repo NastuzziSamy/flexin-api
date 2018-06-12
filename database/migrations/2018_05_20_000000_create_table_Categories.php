@@ -13,12 +13,12 @@ class CreateCategoriesTable extends Migration
      */
     public function up()
     {
-        Schema::create('Categories', function (Blueprint $table) {
+        Schema::create('Categorie', function (Blueprint $table) {
             $table->increments('id_cat');
             $table->primary('id_cat');
             $table->string('nom')->nullable(false)->change();
             $table->integer('contenant');
-            $table->foreign('contenant')->references('id_cat')->on('Categories');
+            $table->foreign('contenant')->references('id_cat')->on('Categorie');
         });
     }
 
@@ -29,6 +29,6 @@ class CreateCategoriesTable extends Migration
      */
     public function down()
     {
-        Schema::drop('Categories');
+        Schema::drop('Categorie');
     }
 }

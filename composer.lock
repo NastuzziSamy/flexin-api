@@ -4,8 +4,45 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "d5bca48e56bbf3a25645858fcab9c285",
+    "content-hash": "ef79f8c540aa42eac9c141ccf16d0b0a",
     "packages": [
+        {
+            "name": "axn/laravel-models-generator",
+            "version": "5.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/AXN-Informatique/laravel-models-generator.git",
+                "reference": "d16381f9aee2f8b5bf67d580257b675e49d87908"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/AXN-Informatique/laravel-models-generator/zipball/d16381f9aee2f8b5bf67d580257b675e49d87908",
+                "reference": "d16381f9aee2f8b5bf67d580257b675e49d87908",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/support": "^5.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Axn\\ModelsGenerator\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "AXN Informatique",
+                    "email": "developpement@axn.fr"
+                }
+            ],
+            "description": "Eloquent model generation from the database.",
+            "homepage": "https://github.com/AXN-Informatique/laravel-models-generator",
+            "time": "2018-06-05T14:23:34+00:00"
+        },
         {
             "name": "dnoegel/php-xdg-base-dir",
             "version": "0.1",
