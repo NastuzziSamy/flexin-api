@@ -2,7 +2,8 @@
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
-class CreateEmplecementTable extends Migration
+
+class CreateLocationsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -11,10 +12,13 @@ class CreateEmplecementTable extends Migration
      */
     public function up()
     {
-        Schema::create('Emplacement', function (Blueprint $table) {
-            $table->string('bat');
-            $table->string('salle');
-            $table->primary(['bat', 'salle']);
+        Schema::create('locations', function (Blueprint $table) {
+            $table->increments('id');
+            $table->string('building');
+            $table->string('room');
+            $table->unique(['building', 'room']);
+            
+            $table->timestamps();
         });
     }
     /**
@@ -24,6 +28,6 @@ class CreateEmplecementTable extends Migration
      */
     public function down()
     {
-        Schema::drop('Emplacement');
+        Schema::drop('locations');
     }
 }
