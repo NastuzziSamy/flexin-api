@@ -19,12 +19,12 @@ class CreateMaterialsTable extends Migration
             $table->string('picture');
             $table->text('description');
             $table->string('state')->nullable();
-            $table->integer('category_id');
+            $table->integer('category_id')->unsigned();
             $table->foreign('category_id')->references('id')->on('categories');
-            $table->string('infrastructure_id');
+            $table->integer('infrastructure_id')->unsigned();
             $table->foreign('infrastructure_id')->references('id')->on('infrastructures');
             $table->point('position')->nullable();
-            $table->string('location_id')->nullable();
+            $table->integer('location_id')->nullable()->unsigned();
             $table->foreign('location_id')->references('id')->on('locations');
 
             $table->timestamps();

@@ -1,8 +1,10 @@
 <?php
+
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
-class CreateRefsTable extends Migration
+
+class CreateInfrastructuresTable extends Migration
 {
     /**
      * Run the migrations.
@@ -11,12 +13,15 @@ class CreateRefsTable extends Migration
      */
     public function up()
     {
-        Schema::create('Refs', function (Blueprint $table) {
-            $table->string('reference');
-            $table->enum('typeTag', ['nfc', 'qrcode']);
-            $table->primary(['reference', 'typeTag']);
+        Schema::create('infrastructures', function (Blueprint $table) {
+            $table->increments('id');
+            $table->string('name', 128)->unique();
+            $table->text('description');
+
+            $table->timestamps();
         });
     }
+
     /**
      * Reverse the migrations.
      *
@@ -24,6 +29,6 @@ class CreateRefsTable extends Migration
      */
     public function down()
     {
-        Schema::drop('Refs');
+        Schema::drop('infrastructures');
     }
 }
