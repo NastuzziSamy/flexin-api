@@ -1,29 +1,24 @@
 <?php
 
-namespace App;
+namespace App\Models;
 
-use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
 class User extends Authenticatable
 {
-    use Notifiable;
-
-    /**
-     * The attributes that are mass assignable.
-     *
-     * @var array
-     */
     protected $fillable = [
-        'name', 'email', 'password',
+        'lastname', 'firstname', 'email', 'phone', 'company', 'type',
     ];
 
-    /**
-     * The attributes that should be hidden for arrays.
-     *
-     * @var array
-     */
-    protected $hidden = [
-        'password', 'remember_token',
+    protected $appends = [
+        'name',
     ];
+
+    public function getNameAttribute() {
+        return $this->lastname.' '.$this->firstname;
+    }
+
+    public function references() {
+        return $this->hasMany(UserReference::class);
+    }
 }
