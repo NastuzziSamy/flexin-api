@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Http\Request;
+use App\Models\User;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,6 +14,16 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
+// Connexions
+Route::get('/login', function (Request $request) {
+    \Auth::login(User::find($request->input('id')) ?? User::find(1));
+
+    return response()->json($request->user());
+});
+
+// Routes v1
+Route::prefix('v1')->group(function () {
+    Route::get('/user', function (Request $request) {
+        return $request->user();
+    });
 });
