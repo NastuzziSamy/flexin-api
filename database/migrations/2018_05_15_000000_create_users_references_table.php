@@ -17,7 +17,7 @@ class CreateUsersReferencesTable extends Migration
             $table->integer('user_id')->unsigned();
             $table->foreign('user_id')->references('id')->on('users');
             $table->enum('type', ['NFC', 'QRCode', 'Code BAR']);
-            $table->string('value');
+            $table->string('value', 128)->unique();
 
             $table->unique(['user_id', 'type']);
             $table->timestamps();

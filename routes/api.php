@@ -15,11 +15,7 @@ use App\Models\User;
 */
 
 // Connexions
-Route::get('/login', function (Request $request) {
-    \Auth::login(User::find($request->input('id')) ?? User::find(1));
-
-    return response()->json($request->user());
-});
+Route::match(['get', 'post'], '/login/{reference}', 'LoginController@login');
 
 // Routes v1
 Route::prefix('v1')->group(function () {
