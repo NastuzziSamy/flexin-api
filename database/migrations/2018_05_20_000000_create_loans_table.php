@@ -18,8 +18,8 @@ class CreateLoansTable extends Migration
             $table->foreign('material_id')->references('id')->on('materials');
             $table->integer('user_id')->unsigned();
             $table->foreign('user_id')->references('id')->on('users');
-            $table->integer('responsable_id')->unsigned();
-            $table->foreign('responsable_id')->references('id')->on('users');
+            $table->integer('responsible_id')->unsigned();
+            $table->foreign('responsible_id')->references('id')->on('users');
             $table->date('begin_at')->useCurrent();
             $table->date('end_at')->useCurrent();
             $table->date('deadline_at')->useCurrent();
