@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class UserReference extends Model
 {
     protected $table = 'users_references';
+    protected $primaryKey = 'value';
 
     protected $fillable = [
         'user_id', 'type',
