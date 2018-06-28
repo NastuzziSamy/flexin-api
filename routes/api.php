@@ -26,4 +26,8 @@ Route::prefix('v1')->group(function () {
     Route::get('/user', function (Request $request) {
         return $request->user();
     });
+
+    Route::apiResources([
+        'categories' => '\App\Http\Controllers\CategoryController',
+    ]);
 });
