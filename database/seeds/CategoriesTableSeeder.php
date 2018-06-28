@@ -14,7 +14,7 @@ class CategorieTableSeeder extends Seeder
         $cats = [
             [
                 'id'=>'1',
-                'name'=>'Labo Heudyasic',
+                'name'=>'Vehicule Autonome',
                 'parent_id'=>'NULL'
             ],
         ];
