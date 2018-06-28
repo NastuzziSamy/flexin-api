@@ -38,7 +38,7 @@ class UsersTableSeeder extends Seeder
             UserReference::create([
                 'user_id' => $id,
                 'type' => 'NFC',
-                'value' => '00000000'
+                'value' => '0000000'.$id
             ]);
         }
     }
