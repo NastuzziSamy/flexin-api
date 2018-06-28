@@ -17,6 +17,7 @@ class CreateMaterialsReferencesTable extends Migration
             $table->integer('material_id')->unsigned();
             $table->foreign('material_id')->references('id')->on('materials');
             $table->enum('type', ['NFC', 'QRCode', 'Code BAR']);
+            $table->string('value');
 
             $table->unique(['material_id', 'type']);
             $table->timestamps();
