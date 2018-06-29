@@ -58,7 +58,7 @@ class MaterialController extends Controller
             $material->picture = $request->input('picture');
             $material->description = $request->input('description');
             $material->state = $request->input('state');
-            //gestion des clés etrangeres
+            //gestion des clés étrangères
             $category->save();
             return response()->json($category);
         }
