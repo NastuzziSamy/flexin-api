@@ -23,7 +23,7 @@ class LocationController extends Controller
     {
         return response()->json(Location::create([
             'building' => $request->input('building'),
-            'room' => $request->input('room'),
+            'room' => $request->input('room')
         ]), 201);
     }
     /**
