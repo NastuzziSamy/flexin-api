@@ -27,6 +27,10 @@ class MaterialController extends Controller
             'description' => $request->input('description'),
             'state' => $request->input('state'),
             //les clés étrangères
+            'category_id' => $request->input('category_id'),
+            'infrastructure_id' => $request->input('infrastructure_id'),
+            'position' => $request->input('position'),
+            'location_id' => $request->input('location_id'),
         ]), 201);
     }
     /**
@@ -59,6 +63,10 @@ class MaterialController extends Controller
             $material->description = $request->input('description');
             $material->state = $request->input('state');
             //gestion des clés étrangères
+            $material->category_id = $request->input('category_id');
+            $material->infrastructure_id = $request->input('infrastructure_id');
+            $material->position = $request->input('position');
+            $material->location_id = $request->input('location_id');
             $category->save();
             return response()->json($category);
         }
