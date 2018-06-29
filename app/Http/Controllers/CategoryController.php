@@ -27,7 +27,7 @@ class CategoryController extends Controller
     {
         return response()->json(Category::create([
             'name' => $request->input('name'),
-            'parent_id' => $request->input('parent_id'),
+            'parent_id' => $request->input('parent_id')
         ]), 201);
     }
 
