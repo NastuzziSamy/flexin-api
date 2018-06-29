@@ -23,7 +23,7 @@ class InfrastructureController extends Controller
     {
         return response()->json(Infrastructure::create([
             'name' => $request->input('name'),
-            'description' => $request->input('description'),
+            'description' => $request->input('description')
         ]), 201);
     }
     /**
