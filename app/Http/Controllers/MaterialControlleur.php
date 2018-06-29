@@ -30,7 +30,7 @@ class MaterialController extends Controller
             'category_id' => $request->input('category_id'),
             'infrastructure_id' => $request->input('infrastructure_id'),
             'position' => $request->input('position'),
-            'location_id' => $request->input('location_id'),
+            'location_id' => $request->input('location_id')
         ]), 201);
     }
     /**
@@ -45,7 +45,7 @@ class MaterialController extends Controller
         if ($material)
             return $material;
         else
-            abort(404, 'Matérile non trouvé');
+            abort(404, 'Matériel non trouvé');
     }
     /**
      * Update the specified resource in storage.
@@ -67,8 +67,8 @@ class MaterialController extends Controller
             $material->infrastructure_id = $request->input('infrastructure_id');
             $material->position = $request->input('position');
             $material->location_id = $request->input('location_id');
-            $category->save();
-            return response()->json($category);
+            $material->save();
+            return response()->json($material);
         }
         else
             abort(404, 'Materiel non trouvé');
