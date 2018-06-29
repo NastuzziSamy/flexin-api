@@ -23,7 +23,7 @@ class Material extends Model
     }
     
     public function category() {
-        $this->hasOne(categories::class);
+        $this->hasOne(category::class);
     }
 
     public function parent() {
