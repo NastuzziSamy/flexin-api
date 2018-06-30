@@ -60,7 +60,7 @@ class UserController extends Controller
             $user->email = $request->input('email');
             $user->phone = $request->input('phone');
             $user->company = $request->input('company');
-            $user->type = $request->input('typr');
+            $user->type = $request->input('type');
             $user->save();
             return response()->json($user);
         }
