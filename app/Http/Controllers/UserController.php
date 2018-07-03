@@ -38,11 +38,12 @@ class UserController extends Controller
      */
     public function show($id)
     {
-        $category = Category::find($id);
-        if ($category)
-            return $category;
+        $user = User::find($id);
+
+        if ($user)
+            return $user;
         else
-            abort(404, 'Catégorie non trouvée');
+            abort(404, 'Utlisateur non trouvée');
     }
     /**
      * Update the specified resource in storage.
