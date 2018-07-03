@@ -21,7 +21,7 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        return response()->json(Category::create([
+        return response()->json(User::create([
             'lastname' => $request->input('lastname'),
             'firstname' => $request->input('firstname'),
             'email' => $request->input('email'),
