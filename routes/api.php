@@ -24,6 +24,10 @@ Route::prefix('v1')->group(function () {
     });
 
     Route::apiResources([
-        'categories' => '\App\Http\Controllers\CategoryController',
+        'users'             => '\App\Http\Controllers\UserController',
+        'categories'        => '\App\Http\Controllers\CategoryController',
+        'infrastructures'   => '\App\Http\Controllers\InfrastructureController',
+        'materials'         => '\App\Http\Controllers\MaterialController',
+        'locations'         => '\App\Http\Controllers\LocationController',
     ]);
 });

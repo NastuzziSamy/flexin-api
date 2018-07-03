@@ -13,6 +13,7 @@ class InfrastructureController extends Controller
     {
         return Infrastructure::all();
     }
+    
     /**
      * Store a newly created resource in storage.
      *
@@ -26,6 +27,7 @@ class InfrastructureController extends Controller
             'description' => $request->input('description')
         ]), 201);
     }
+
     /**
      * Display the specified resource.
      *
@@ -40,6 +42,7 @@ class InfrastructureController extends Controller
         else
             abort(404, 'Infrastructure non trouvée');
     }
+
     /**
      * Update the specified resource in storage.
      *
@@ -57,8 +60,9 @@ class InfrastructureController extends Controller
             return response()->json($infrastructure);
         }
         else
-            abort(404, Infrastructure non trouvée');
+            abort(404, 'Infrastructure non trouvée');
     }
+
     /**
      * Remove the specified resource from storage.
      *
@@ -71,6 +75,6 @@ class InfrastructureController extends Controller
         if ($infrastructure && $infrastructure->delete())
             return abort(200);
         else
-            abort(404, Infrastructure non trouvée');
+            abort(404, 'Infrastructure non trouvée');
     }
 }
